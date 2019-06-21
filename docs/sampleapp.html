@@ -1,0 +1,487 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Creating An App (CHA2DS2VASc Example) · igia</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;overview&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#overview&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Creating An App (CHA2DS2VASc Example) · igia"/><meta property="og:type" content="website"/><meta property="og:url" content="http://igia.io/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;overview&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#overview&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Overview&lt;/h2&gt;
+"/><meta property="og:image" content="http://igia.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="http://igia.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/igia-favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/igia-bw-inverse.png" alt="igia"/><h2 class="headerTitleWithLogo">igia</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/gettingstarted" target="_self">Docs</a></li><li class=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSc38F2WK70mqcp3BhXrS6K9p2qTiQFa_ldpN1dCkUwhrk-Zpw/viewform?usp=pp_url&amp;entry.185840096=Send+me+updates+on+igia+releases.&amp;entry.185840096=Send+me+major+announcements+on+igia-related+updates+and+news.&amp;entry.185840096=Please+feel+free+to+contact+me+about+collaboration+or+other+opportunities." target="_self">Stay Informed</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>igia</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">igia<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/platformoverview">Platform Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/gettingstarted">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/architecture">Architecture</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/sampleapp">How To Create An App</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/docs/licensing">Licensing</a></li><li class="navListItem"><a class="navItem" href="/docs/HD">Healthcare Disclaimer</a></li><li class="navListItem"><a class="navItem" href="/docs/hipaa-feature">HIPAA Support</a></li><li class="navListItem"><a class="navItem" href="/docs/components">Component List</a></li><li class="navListItem"><a class="navItem" href="/docs/releases">Releases</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Sample App<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/igia-cha2ds2-vasc-api~README">Sample App API</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-cha2ds2-vasc-application~README">Sample App UI</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Microservice Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/igia-apigateway~README">Microservice Gateway</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Key Cloak (OAuth)</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~usage">Usage</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~introduction">Introduction</a></li></ul></div><li class="navListItem"><a class="navItem" href="/docs/igia-orchestrator~README">Orchestrator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">SMART on FHIR<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/smart-on-fhir-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-api-example~README">FHIR API Example</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">FHIR API HAPI Config</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~usage">Usage</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~introduction">Introduction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SMART Launch App</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-smart-launch-app~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-smart-launch-app~usage">Usage</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Care Management<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/caremanagement-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/caremanagement~README">Care Management</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-camunda~README">Camunda Workflow Engine</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Data Integration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/integration-app-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-app~README">Data Integration App</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-configuration~README">Data Integration Config</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-worker~README">Data Integration Worker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tools<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/igia-commons~README">igia Common Libs</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-docs~README">Docs Website</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-datamask~README">Data Masking</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Creating An App (CHA2DS2VASc Example)</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<p>JHipster generator is the recommended way to create a new clinical application. The generated application is a secure web application that serves as the application gateway.</p>
+<p>The generated application leverages the <igia/> KeyCloak server for Authentication and Authorization. It can also easily access other <igia/> microservices.</p>
+<p>Before using JHipster to generate a new application, it is strongly recommended that a user has familiarity with:</p>
+<ul>
+<li>Java and Spring Boot</li>
+<li>JHipster generator</li>
+<li>OAuth2/OpenID Connect</li>
+<li>Microservice architecture and &quot;Backend for Frontend&quot; development patterns</li>
+</ul>
+<p>This document provides instructions on creating a new clinical application called igia-demo-app and deploying it to the <igia/> platform using igia-orchestrator.</p>
+<h3><a class="anchor" aria-hidden="true" id="configure-keycloak-server"></a><a href="#configure-keycloak-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configure KeyCloak server</h3>
+<ol>
+<li>Login to KeyCloak as an administrator</li>
+<li>Create a new client igia-demo-app</li>
+<li>Change client type to confidential</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="generate-application-gateway-using-jhipster"></a><a href="#generate-application-gateway-using-jhipster" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate application gateway using JHipster</h3>
+<pre><code class="hljs">cd igiaworkspace
+mkdir igia-demo-app
+npm <span class="hljs-keyword">install </span>generator-<span class="hljs-keyword">jhipster
+</span><span class="hljs-keyword">jhipster
+</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="update-application-configuration"></a><a href="#update-application-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update application configuration</h4>
+<ol>
+<li>modify application.yml, change realm name from jhipster to igia</li>
+<li>update client id and secret from keycloak</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="create-a-new-user"></a><a href="#create-a-new-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a New User</h3>
+<p>igiademouser</p>
+<p>add role (rolemapping for the user)</p>
+<h2><a class="anchor" aria-hidden="true" id="create-jhipster-sample-application-microservice-cha2ds2vascapi"></a><a href="#create-jhipster-sample-application-microservice-cha2ds2vascapi" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create JHipster Sample Application microservice (cha2ds2vascapi)</h2>
+<p>This microservice gets the cha2ds2vasc parameter values as input to calculate the Stroke Risk %.
+The process to create the api is explained as below.</p>
+<ol>
+<li>Open the command prompt from the folder where you want to create the microservice/project.</li>
+<li>Type the command jhipster</li>
+</ol>
+<pre><code class="hljs">mkdir cha2ds2vascapi
+cd cha2ds2vascapi
+npm <span class="hljs-keyword">install </span>generator-<span class="hljs-keyword">jhipster
+</span><span class="hljs-keyword">jhipster
+</span></code></pre>
+<ol start="3">
+<li>Installation script will ask (with sampleApp specific answers):</li>
+</ol>
+<ul>
+<li>“Which type of application would you like to create?“
+ANS: Select 2nd option: Microservice application: in a microservices architecture, this is one of the services.</li>
+<li>&quot;What is the base name of your application?&quot;
+ANS: cha2ds2vascapi</li>
+<li>&quot;What is your default Java package name?&quot;
+ANS: io.igia</li>
+<li>&quot;Do you want to use the JHipster Registry to configure, monitor and scale your application?&quot;
+ANS: select 1st option - &quot;JHipster Registry&quot;</li>
+<li>&quot;Which type of authentication would you like to use?&quot;
+ANS: select 2nd option - &quot;OAuth 2.0 / OIDC Authentication&quot;</li>
+<li>&quot;Which type of database would you like to use?&quot;
+ANS: SQL</li>
+<li>&quot;Which production database would you like to use?&quot;
+ANS: Postgres</li>
+<li>&quot;Which development database would you like to use?&quot;
+ANS: H2, running in-memory</li>
+<li>&quot;Do you want to use the Spring cache abstraction?&quot;
+ANS: Hazelcast</li>
+<li>&quot;Do you want to use Hibernate 2nd level cache?&quot;
+ANS: Y</li>
+<li>&quot;Would you like to use Maven or Gradle?&quot;
+ANS: Maven</li>
+<li>&quot;Which other technologies would you like to use?&quot;
+ANS: Nothing selected</li>
+<li>&quot;Would you like to enable internationalization support?&quot;
+ANS: Y</li>
+<li>&quot;Which testing frameworks would you like to use?&quot;</li>
+<li>&quot;Would you like to install other generators from the JHipster Marketplace?&quot;
+ANS: N</li>
+</ul>
+<ol start="4">
+<li>Push the code to the git repository as per your preference.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="remove-database-optional"></a><a href="#remove-database-optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove Database (Optional)</h3>
+<p>If you wish to remove the database from your project, then the below steps should be performed.</p>
+<ol>
+<li>Modify database options in .yo-rc.json as follows:</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-string">"databaseType"</span>: <span class="hljs-string">"no"</span>,
+<span class="hljs-string">"devDatabaseType"</span>: <span class="hljs-string">"no"</span>,
+<span class="hljs-string">"prodDatabaseType"</span>: <span class="hljs-string">"no"</span>,
+</code></pre>
+<ol start="2">
+<li><p>run jhipster</p></li>
+<li><p>Delete below files:</p></li>
+</ol>
+<pre><code class="hljs">config/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DatabaseConfiguration</span>.</span></span>java
+config/audit/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">AuditEventConverter</span>.</span></span>java
+domain/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">AbstractAuditingEntity</span>.</span></span>java
+domain/<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">PersistentAuditEvent</span>.</span></span>java
+config/liquibase folder <span class="hljs-keyword">and</span> related files
+</code></pre>
+<p>These steps will regenerate the project removing the database files (so should be performed before development begins). Similar steps can be performed in the gateway as well.</p>
+<h3><a class="anchor" aria-hidden="true" id="install-standalone-profile-for-development"></a><a href="#install-standalone-profile-for-development" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install standalone profile for development</h3>
+<ol>
+<li>Open terminal from your project folder and type:</li>
+</ol>
+<pre><code class="hljs">yarn <span class="hljs-keyword">global</span> <span class="hljs-built_in">add</span> generator-jhipster-standalone-<span class="hljs-keyword">profile</span>
+yo jhipster-standalone-<span class="hljs-keyword">profile</span>
+</code></pre>
+<ol start="2">
+<li>Several questions will be asked about overwriting some files in your project. Answer &quot;yes&quot; and complete the standalone profile creation.</li>
+<li>Run the project with command</li>
+</ol>
+<pre><code class="hljs">./<span class="hljs-keyword">mvnw </span>-Pdev,standalone
+</code></pre>
+<ol start="4">
+<li>Push the code to git.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="start-work-on-your-requirements"></a><a href="#start-work-on-your-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start work on your requirements</h3>
+<ol>
+<li>Once the above commands are run successfully, a project structure will be created with all basic packages.</li>
+<li>The following steps should be performed to create a sampleApp:</li>
+</ol>
+<ul>
+<li>REST configuration: New rest configuration file added in package io.igia.web.rest to receive requests in JSON : &quot;ChadsVascParameterResource.java&quot;</li>
+<li>Service : New Interface created in package io.igia.service to declare methods for actual calculation of cha2ds2vasc. : &quot;RiskCalculatorService.java&quot;</li>
+<li>ServiceImpl: New package io.igia.service.impl created to add an implementation class for above service interface with business logic of stroke risk calculation : &quot;RiskCalculatorServiceImpl.java&quot;</li>
+<li>Constants: added corresponding constants in Constants.java class.</li>
+<li>BEANs/ DTOs: BEANs/ DTOs created to receive json request and send json response in package io.igia.service.dto : &quot;ChadsVascParameterDTO.java&quot;, &quot;ChadsVascParameterPointsDTO.java&quot;, &quot;ResultDTO.java&quot;</li>
+<li>Mapper: New mapper class added in package io.igia.service.mapper to map the received input of cha2ds2vasc parameters to appropriate points: &quot;ChadsVascParameterMapper.java&quot;</li>
+<li>Exception &amp; Error: Used JHipster customized exception class &quot;CustomParameterizedException.java&quot; to throw an exception and added new Errors in &quot;ErrorConstants.java&quot;</li>
+</ul>
+<ol start="3">
+<li>Run the application in standalone with command:</li>
+</ol>
+<pre><code class="hljs">./<span class="hljs-keyword">mvnw </span>-Pdev,standalone
+</code></pre>
+<ol start="4">
+<li>To test the API, prepare the POST request and send it through Postman (or other REST software):</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-string">URL :</span> <span class="hljs-string">http:</span><span class="hljs-comment">//localhost:8054/api/risk-score</span>
+
+<span class="hljs-string">Request :</span>
+
+{
+               <span class="hljs-string">"congestiveHeartFailure"</span> :<span class="hljs-literal">true</span>,
+                <span class="hljs-string">"hypertension"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-string">"diabetesMellitus"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-string">"priorStroke"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-string">"vascularDisease"</span>:<span class="hljs-literal">true</span>,
+                <span class="hljs-string">"age"</span>:<span class="hljs-number">77</span>,
+                <span class="hljs-string">"sexCategory"</span>:<span class="hljs-string">"Female"</span>
+}
+
+<span class="hljs-string">Response :</span>
+
+{
+    <span class="hljs-string">"totalPoint"</span>: <span class="hljs-number">9</span>,
+    <span class="hljs-string">"strokeRiskPercent"</span>: <span class="hljs-number">15.2</span>
+}
+
+</code></pre>
+<ol start="5">
+<li>Push the changes to git.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="adding-tests"></a><a href="#adding-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding tests</h3>
+<ol>
+<li>Add Unit and Integration tests
+The sample application includes 2 sample tests:</li>
+</ol>
+<ul>
+<li>Test for rest : ChadsVascParameterResourceIntTest.java</li>
+<li>Test for service class : RiskCalculatorServiceTest added to mock calculate method.</li>
+</ul>
+<p>Run the command below for Unit and Integration tests:</p>
+<pre><code class="hljs">./<span class="hljs-keyword">mvnw </span>test 
+</code></pre>
+<ol start="2">
+<li>Adding Karate tests
+Karate is an open-source tool that combines API test-automation, mocks and performance-testing into a single, unified framework.
+Use the below steps to enable Karate:</li>
+<li>Add below dependencies in POM.xml</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.intuit.karate<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>karate-apache<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.8.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.intuit.karate<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>karate-junit4<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.8.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<ol start="2">
+<li>Add below execution in plugin 'maven-surefire-plugin' in POM.xml</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>default-test<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span>**/Abstract*.java<span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span>**/*Karate*.java<span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+</code></pre>
+<ol start="3">
+<li>Add Profile in POM.xml</li>
+</ol>
+<pre><code class="hljs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>integration<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span class="hljs-template-variable">{maven-surefire-plugin.version}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>Karate integration tests<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*Karate*.java<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Force alphabetical order to have a reproducible build --&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">runOrder</span>&gt;</span>alphabetical<span class="hljs-tag">&lt;/<span class="hljs-name">runOrder</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+</span></code></pre>
+<ol start="4">
+<li>create features folder in src/test</li>
+<li>create file basic-auth.js</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(credentials)</span> </span>{
+  <span class="hljs-keyword">var</span> temp = credentials.username + <span class="hljs-string">':'</span> + credentials.password;
+  <span class="hljs-keyword">var</span> Base64 = Java.type(<span class="hljs-string">'java.util.Base64'</span>);
+  <span class="hljs-keyword">var</span> encoded = Base64.getEncoder().encodeToString(temp.bytes);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'Basic '</span> + encoded;
+}
+</code></pre>
+<ol start="6">
+<li>create karate-config.js and modify your baseURL and tokenURL</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span> {
+  var env = karate.env;
+  karate.<span class="hljs-built_in">log</span>(<span class="hljs-string">'karate.env system property was:'</span>, env);
+  <span class="hljs-keyword">if</span> (!env) {
+    env = <span class="hljs-string">'dev'</span>;
+  }
+  var <span class="hljs-built_in">config</span> = {
+    baseUrl: <span class="hljs-string">'http://localhost:8054/api'</span>,
+    tokenUrl: <span class="hljs-string">'http://localhost:9080/auth/realms/igia/protocol/openid-connect/token'</span>,
+    clientId: <span class="hljs-string">'internal'</span>,
+    clientSecret: <span class="hljs-string">'internal'</span>
+  };
+
+  karate.configure(<span class="hljs-string">'connectTimeout'</span>, <span class="hljs-number">50000</span>);
+  karate.configure(<span class="hljs-string">'readTimeout'</span>, <span class="hljs-number">50000</span>);
+  karate.configure(<span class="hljs-string">'logPrettyRequest'</span>, <span class="hljs-literal">true</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">config</span>;
+}
+</code></pre>
+<ol start="7">
+<li>create folder inside src/test/features folder. (cha2ds2vasc)</li>
+<li>Add KarateTestRunner.java class in src/test/java. provide above folder name as classpath.</li>
+</ol>
+<pre><code class="hljs"><span class="hljs-variable">@RunWith</span>(Karate.class)
+<span class="hljs-variable">@CucumberOptions</span>(features = <span class="hljs-string">"classpath:cha2ds2vasc"</span>)
+public class KarateTestRunner {
+}
+</code></pre>
+<ol start="9">
+<li>create test files login.feature and cha2ds2vascapi.feature inside the folder above.</li>
+<li>To run the Karate tests:</li>
+</ol>
+<pre><code class="hljs">./mvnw test <span class="hljs-attribute">-Dtest</span>=KarateTestRunner
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="swagger-ui-for-api"></a><a href="#swagger-ui-for-api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Swagger-UI for API</h3>
+<p>Jhipster uses &quot;Swagger&quot; to provide a UI to all available APIs:
+To use swagger, follow the below steps:</p>
+<ul>
+<li>Install a browser specific plugin for swagger (ex: for chrome, swagger UI Console plugin is provided)</li>
+<li>Open the plugin and expose the link &quot;<a href="http://localhost:8054/v2/api-docs">http://localhost:8054/v2/api-docs</a></li>
+<li>All available APIs will be listed.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="create-gateway-application-cha2ds2-vasc-app"></a><a href="#create-gateway-application-cha2ds2-vasc-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Gateway application (CHA2DS2-VASc app)</h2>
+<p>The below steps are used to create a sample application. This application will help to calculate risk of stroke for patients with non-valuable atrial fibrillation using the <a href="https://en.wikipedia.org/wiki/CHA2DS2%E2%80%93VASc_score">CHA2DS2-VASc</a> risk score.</p>
+<h4><a class="anchor" aria-hidden="true" id="generate-gateway-application"></a><a href="#generate-gateway-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Generate Gateway application</h4>
+<ol>
+<li>Open CMD/Terminal and run the following commands:</li>
+</ol>
+<pre><code class="hljs">mkdir cha2ds2vascapp
+cd cha2ds2vascapp
+npm <span class="hljs-keyword">install </span>generator-<span class="hljs-keyword">jhipster
+</span><span class="hljs-keyword">jhipster </span>--<span class="hljs-keyword">jhi-prefix="igia"
+</span></code></pre>
+<p>JHipster will ask below questions to generate an application. (with sampleApp specific answers)</p>
+<ol>
+<li>“Which type of application would you like to create?“
+ANS: Select 3rd option: Microservice gateway</li>
+<li>&quot;What is the base name of your application?&quot;
+ANS: cha2ds2vascapp</li>
+<li>&quot;Which Framework would you like to use for the client?&quot;
+ANS: Angular</li>
+<li>&quot;Would you like to use the Sass stylesheet preprocessor for your CSS?&quot;
+ANS: yes</li>
+<li>&quot;Would you like to enable internationalization support?&quot;
+ANS: yes  and select English and Spanish</li>
+<li>&quot;What is your default Java package name?&quot;
+ANS: io.igia</li>
+<li>&quot;Do you want to use the JHipster Registry to configure, monitor and scale your application?&quot;
+ANS: select 1st option - &quot;JHipster Registry&quot;</li>
+<li>&quot;Which type of authentication would you like to use?&quot;
+ANS: select 2nd option - &quot;OAuth 2.0 / OIDC Authentication&quot;</li>
+<li>&quot;Which type of database would you like to use?&quot;
+ANS: SQL</li>
+<li>&quot;Which production database would you like to use?&quot;
+ANS: Postgres</li>
+<li>&quot;Which development database would you like to use?&quot;
+ANS: H2, running in-memory</li>
+<li>&quot;Do you want to use the Spring cache abstraction?&quot;
+ANS: Hazelcast</li>
+<li>&quot;Do you want to use Hibernate 2nd level cache?&quot;
+ANS: Y</li>
+<li>&quot;Would you like to use Maven or Gradle?&quot;
+ANS: Maven</li>
+<li>&quot;Which other technologies would you like to use?&quot;
+ANS: Nothing selected</li>
+<li>&quot;Would you like to enable internationalization support?&quot;
+ANS: Y</li>
+<li>&quot;Which testing frameworks would you like to use?&quot;
+ANS: Cucumber and Protractor</li>
+<li>&quot;Would you like to install other generators from the JHipster Marketplace?&quot;
+ANS: N</li>
+</ol>
+<ol start="2">
+<li>Install a standalone profile for development</li>
+</ol>
+<p>This module helps run the application without a registry or Auth server. On the front-end side this module also helps to use in-memory-api. <a href="https://www.npmjs.com/package/generator-jhipster-standalone-profile">generator-jhipster-standalone-profile</a>.</p>
+<pre><code class="hljs">yarn <span class="hljs-keyword">global</span> <span class="hljs-built_in">add</span> generator-jhipster-standalone-<span class="hljs-keyword">profile</span>
+yo jhipster-standalone-<span class="hljs-keyword">profile</span>
+</code></pre>
+<p>It will ask whether to add a standalone profile to the server as well as client code. Select yes and proceed. It will also ask to override certain file(s). Select yes and proceed.</p>
+<ol start="3">
+<li>Run the app using standalone mode</li>
+</ol>
+<pre><code class="hljs">yarn <span class="hljs-keyword">start</span>:<span class="hljs-keyword">standalone</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="update-ui-style-and-remove-unused-code-optional-step"></a><a href="#update-ui-style-and-remove-unused-code-optional-step" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update UI style and remove unused code (Optional step)</h3>
+<ol>
+<li>Add bootstrap library for styling UI <a href="https://fezvrasta.github.io/bootstrap-material-design/">bootstrap-material-design</a>.</li>
+<li>Remove unused UI pages/files from the JHipster generated code(swagger-ui, administration related pages etc).</li>
+<li>Update the colour schemes and logo/icons as per the platform UI style.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="steps-for-updating-ui-application"></a><a href="#steps-for-updating-ui-application" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Steps for updating UI application</h3>
+<ol>
+<li><p>Create a new component in angular app</p>
+<p>Angular-cli commands can be used to generate a new component. <a href="https://www.jhipster.tech/using-angular/">Using Angular in JHipster</a>.</p>
+<p>Created folder(calculator) in cha2ds2vascapp\src\main\webapp\app</p>
+<p>Added below files in calculator folder</p>
+<ul>
+<li>calculator.component.ts</li>
+<li>calculator.component.html</li>
+<li>calculator.scss</li>
+<li>cha2ds2vasc.service.ts</li>
+<li>calculator.module.ts</li>
+<li>calculator.route.ts</li>
+</ul></li>
+<li><p>Add appropriate code in the above files</p></li>
+<li><p>Update app.module to import new calculator module.</p></li>
+<li><p>Update Navbar and Footer styles</p>
+<ul>
+<li>Goto src\main\webapp\app\layouts\footer and update style as required</li>
+<li>Goto src\main\webapp\app\layouts\navbar and update styles as required</li>
+</ul></li>
+<li><p>Unit test is added in src\test\javascript\spec\app\calculator folder.</p>
+<ul>
+<li>To run unit tests below commands is used</li>
+</ul>
+<pre><code class="hljs">yarn <span class="hljs-built_in">test</span>
+</code></pre></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="steps-for-adding-auditing-capabilities"></a><a href="#steps-for-adding-auditing-capabilities" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Steps for adding auditing capabilities</h3>
+<p>The application gateway serves as the backend for the clinical application. It is necessary to add HIPAA auditing capabilities so that all of the API calls are logged/auditable. <igia/> provides a Spring Boot auto-configuration library for this purpose. To add the HIPAA auditing library into the project, just add the following lines to the pom.xml, right after <code>&lt;!-- jhipster-needle-maven-add-dependency --&gt;</code></p>
+<blockquote>
+<p>Please use 0.3.0 for version before <igia/> is released.</p>
+</blockquote>
+<pre><code class="hljs">        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.igia<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>igia-hipaa-audit-autoconfig<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.3.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>Please refer to the <a href="https://github.com/igia/igia-commons/blob/master/README.md">igia-commons README</a> file for more information about the library.</p>
+<h3><a class="anchor" aria-hidden="true" id="steps-for-updating-client-id-of-the-application-for-keycloak"></a><a href="#steps-for-updating-client-id-of-the-application-for-keycloak" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Steps for updating client id of the application (For keycloak)</h3>
+<p>When generating a gateway application, JHipster sets the client id as 'web_app'. To update this client id, the below changes are required.</p>
+<ol>
+<li>Change values under security.oauth2.client in application.yml file in main and test folder.</li>
+<li>Add respective client in Keycloak with roles and users.</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="run-application-in-development-mode"></a><a href="#run-application-in-development-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run Application in development mode</h3>
+<p>To run the gateway application without a standalone profile we need to start the below services:</p>
+<ol>
+<li>JHipster registry</li>
+<li>keycloak</li>
+<li>igia-cha2ds2-vasc-api microservice</li>
+</ol>
+<p>once the above services are started, then run the below commands from gateway folder:</p>
+<pre><code class="hljs"><span class="hljs-symbol">yarn</span> start
+<span class="hljs-keyword">mvnw
+</span></code></pre>
+<p>Home
+<img src="/docs/assets/newapp-HomePage.png" alt="Home Page"></p>
+<p>Calculator
+<img src="/docs/assets/newapp-Calculator.png" alt="Calculator"></p>
+<p>Calculator Result
+<img src="/docs/assets/newapp-calculator-withresult.png" alt="Calculator Result"></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/21/2019 by Michael Oates</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/architecture"><span class="arrow-prev">← </span><span>Architecture</span></a><a class="docs-next button" href="/docs/igia-faq"><span>FAQ</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a><ul class="toc-headings"><li><a href="#configure-keycloak-server">Configure KeyCloak server</a></li><li><a href="#generate-application-gateway-using-jhipster">Generate application gateway using JHipster</a></li><li><a href="#create-a-new-user">Create a New User</a></li></ul></li><li><a href="#create-jhipster-sample-application-microservice-cha2ds2vascapi">Create JHipster Sample Application microservice (cha2ds2vascapi)</a><ul class="toc-headings"><li><a href="#remove-database-optional">Remove Database (Optional)</a></li><li><a href="#install-standalone-profile-for-development">Install standalone profile for development</a></li><li><a href="#start-work-on-your-requirements">Start work on your requirements</a></li><li><a href="#adding-tests">Adding tests</a></li><li><a href="#swagger-ui-for-api">Swagger-UI for API</a></li></ul></li><li><a href="#create-gateway-application-cha2ds2-vasc-app">Create Gateway application (CHA2DS2-VASc app)</a><ul class="toc-headings"><li><a href="#update-ui-style-and-remove-unused-code-optional-step">Update UI style and remove unused code (Optional step)</a></li><li><a href="#steps-for-updating-ui-application">Steps for updating UI application</a></li><li><a href="#steps-for-adding-auditing-capabilities">Steps for adding auditing capabilities</a></li><li><a href="#steps-for-updating-client-id-of-the-application-for-keycloak">Steps for updating client id of the application (For keycloak)</a></li><li><a href="#run-application-in-development-mode">Run Application in development mode</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="main"><h5><a href="/" class="nav-home"><div class="box"><img src="/img/igia-bw-inverse.png" alt="igia" width="66" height="66"/>    <span style="font-size:3em;font-weight:200">igia</span></div></a></h5><span class="footer-text">An open-source platform for developing and deploying healthcare technology.</span><br/><br/><span class="footer-text small left">Logo Design By <a class="footer-text left" href="https://gillfishmandesign.com">GillFishmanDesign.com</a> Cambridge, Massachusetts</span><br/><br/><span class="footer-text small left">Copyright © 2019</span><br/><span class="footer-text small left">&quot;igia&quot; is a trademark of the igia.io project.</span></div><div><h5>Docs</h5><a href="/docs/gettingstarted">Getting Started</a><a href="/docs/LICENSE">License</a><a href="/docs/HD">Disclaimer</a><a href="/docs/igia-faq">FAQ</a></div><div><h5>Community</h5><a href="/users.html">Platform Users</a><br/><h5>Contact:</h5><img src="/img/info-at-igia-io-white.svg" style="height:1.3em"/></div><div><h5>More</h5><a href="https://github.com/igia">GitHub</a><a class="github-button" href="https://github.com/igia/igia-docs" data-icon="octicon-star" data-count-href="/igia.github.io/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section></footer></div></body></html>
