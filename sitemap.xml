@@ -44,6 +44,7 @@
 <url> <loc>http://igia.io/docs/integration-configuration~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/integration-configuration~README" /> </url>
 <url> <loc>http://igia.io/docs/integration-worker~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/integration-worker~README" /> </url>
 <url> <loc>http://igia.io/docs/license-header</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/license-header" /> </url>
+<url> <loc>http://igia.io/docs/LICENSE</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/LICENSE" /> </url>
 <url> <loc>http://igia.io/docs/licensing</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/licensing" /> </url>
 <url> <loc>http://igia.io/docs/platformoverview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/platformoverview" /> </url>
 <url> <loc>http://igia.io/docs/releases</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/releases" /> </url>
