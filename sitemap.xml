@@ -7,6 +7,8 @@
 <url> <loc>http://igia.io/docs/architecture</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/architecture" /> </url>
 <url> <loc>http://igia.io/docs/caremanagement-feature</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/caremanagement-feature" /> </url>
 <url> <loc>http://igia.io/docs/caremanagement~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/caremanagement~README" /> </url>
+<url> <loc>http://igia.io/docs/cha2ds2-vasc-api~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/cha2ds2-vasc-api~README" /> </url>
+<url> <loc>http://igia.io/docs/cha2ds2-vasc-application~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/cha2ds2-vasc-application~README" /> </url>
 <url> <loc>http://igia.io/docs/component/overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component/overview" /> </url>
 <url> <loc>http://igia.io/docs/component/usage</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component/usage" /> </url>
 <url> <loc>http://igia.io/docs/component1</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component1" /> </url>
