@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>I2b2 &amp; CDI Usage · igia</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Below steps describes usage of CDI ( Clinical Data Infrastructure ) application i.e. understaing sftp folders, folder structure to be uploaded in concept and data folder, csv file structures, use cases etc.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="I2b2 &amp; CDI Usage · igia"/><meta property="og:type" content="website"/><meta property="og:url" content="http://igia.io/"/><meta property="og:description" content="&lt;p&gt;Below steps describes usage of CDI ( Clinical Data Infrastructure ) application i.e. understaing sftp folders, folder structure to be uploaded in concept and data folder, csv file structures, use cases etc.&lt;/p&gt;
+"/><meta property="og:image" content="http://igia.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="http://igia.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/igia-favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/igia-bw-inverse.png" alt="igia"/><h2 class="headerTitleWithLogo">igia</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/gettingstarted" target="_self">Documentation</a></li><li class=""><a href="https://docs.google.com/forms/d/e/1FAIpQLSc38F2WK70mqcp3BhXrS6K9p2qTiQFa_ldpN1dCkUwhrk-Zpw/viewform?usp=pp_url&amp;entry.185840096=Send+me+updates+on+igia+releases.&amp;entry.185840096=Send+me+major+announcements+on+igia-related+updates+and+news.&amp;entry.185840096=Please+feel+free+to+contact+me+about+collaboration+or+other+opportunities." target="_self">Stay Informed</a></li><li class=""><a href="https://groups.google.com/forum/#!forum/igia" target="_self">Community</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>I2b2 &amp; CDI</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">igia<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/platformoverview">Platform Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/gettingstarted">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs/sampleapp">How To Create An App</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-faq">FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/docs/licensing">Licensing</a></li><li class="navListItem"><a class="navItem" href="/docs/HD">Healthcare Disclaimer</a></li><li class="navListItem"><a class="navItem" href="/docs/hipaa-feature">HIPAA Support</a></li><li class="navListItem"><a class="navItem" href="/docs/components">Component List</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Releases</h4><ul><li class="navListItem"><a class="navItem" href="/docs/release-v031">Release-0.3.1</a></li><li class="navListItem"><a class="navItem" href="/docs/release-v032">Release-0.3.2</a></li></ul></div><li class="navListItem"><a class="navItem" href="/docs/known-issues">Known Issues</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Sample App<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/cha2ds2-vasc-api~README">Sample App API</a></li><li class="navListItem"><a class="navItem" href="/docs/cha2ds2-vasc-application~README">Sample App UI</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Microservice Platform<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/igia-apigateway~README">Microservice Gateway</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Key Cloak (OAuth)</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~usage">Usage</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-keycloak~introduction">Introduction</a></li></ul></div><li class="navListItem"><a class="navItem" href="/docs/igia-orchestrator~README">Orchestrator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">SMART on FHIR<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/smart-on-fhir-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-api-example~README">FHIR API Example</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">FHIR API HAPI Config</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~usage">Usage</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-fhir-autoconfigure~introduction">Introduction</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SMART Launch App</h4><ul><li class="navListItem"><a class="navItem" href="/docs/igia-smart-launch-app~README">README</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-smart-launch-app~usage">Usage</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Care Management<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/caremanagement-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/caremanagement~README">Care Management</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-camunda~README">Camunda Workflow Engine</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Data Integration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/integration-app-feature">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-app~README">Data Integration App</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-configuration~README">Data Integration Config</a></li><li class="navListItem"><a class="navItem" href="/docs/integration-worker~README">Data Integration Worker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Tools<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/igia-commons~README">igia Common Libs</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-docs~README">Docs Website</a></li><li class="navListItem"><a class="navItem" href="/docs/igia-datamask~README">Data Masking</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">I2b2 &amp; CDI<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/i2b2-cdi-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/i2b2-cdi-ext~README">CDI Quickstart</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/i2b2-cdi-usage">CDI Usage</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">I2b2 &amp; CDI Usage</h1></header><article><div><span><p>Below steps describes usage of CDI ( Clinical Data Infrastructure ) application i.e. understaing sftp folders, folder structure to be uploaded in concept and data folder, csv file structures, use cases etc.</p>
+<h2><a class="anchor" aria-hidden="true" id="understanding-sftp-folders"></a><a href="#understanding-sftp-folders" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Understanding SFTP Folders</h2>
+<p>Connect to SFTP server using using one of the client (e.g. <code>FileZilla</code> when using windows) by providing Host, Username, Password and Port.</p>
+<ol>
+<li><strong><em>Concept folder</em></strong> – Files in this folder will contain ontology data to be imported in i2b2. Files will be in csv format. File will have below folder structure.</li>
+</ol>
+<pre><code class="hljs">├── ProjectID                           <span class="hljs-meta"># (e.g. CONCEPT01)</span>
+│   ├── SourceSystemCD                  <span class="hljs-meta"># (e.g. EDW)</span>
+│   │   ├── concepts.csv
+│   <span class="hljs-string">|   ├── concept_mappings.csv</span>
+</code></pre>
+<p>Finally zip the above folder as <strong><em>CONCEPT01.zip</em></strong> and append extra extension as <strong><em>CONCEPT01.zip.txt</em></strong>. (<strong><em>Note</em></strong>: This is required while uploading file to the sftp folder. After successful copy, Remove the extension)</p>
+<ol start="2">
+<li><strong><em>Data folder</em></strong> – Files in this folder will contain patient data to be imported in i2b2. Files will be in csv format. File will have below folder structure.</li>
+</ol>
+<pre><code class="hljs">├── ProjectID                           <span class="hljs-meta"># (e.g. CONCEPT01)</span>
+│   ├── SourceSystemCD                  <span class="hljs-meta"># (e.g. EDW)</span>
+│   │   ├── patient_dimensions.csv
+│   <span class="hljs-string">|   ├── provider_dimensions.csv</span>
+│   │   ├── visit_dimensions.csv
+│   <span class="hljs-string">|   ├── observation_facts.csv</span>
+</code></pre>
+<p>Finally zip the above folder as <strong><em>DATA01.zip</em></strong> and append extra extension as <strong><em>DATA01.zip.txt</em></strong>. (<strong><em>Note</em></strong>: This is required while uploading file to the sftp folder. After successful copy, Remove the extension)</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="understanding-files-that-will-be-uploaded-in-the-concept-folder"></a><a href="#understanding-files-that-will-be-uploaded-in-the-concept-folder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Understanding files that will be uploaded in the concept folder</h2>
+<p>Create the below folder structure. ProjectID will be the first folder (e.g. CONCEPT01 , Note: Project Id can be alphanumeric ), inside it create another folder which represents SourceSystemCD (e.g. EDW). Finally create all or any of the csv file mentioned in below hierarchy.</p>
+<pre><code class="hljs">├── ProjectID                           <span class="hljs-meta"># (e.g. CONCEPT01)</span>
+│   ├── SourceSystemCD                  <span class="hljs-meta"># (e.g. EDW)</span>
+│   │   ├── concepts.csv
+│   <span class="hljs-string">|   ├── concept_mappings.csv</span>
+</code></pre>
+<ol>
+<li><strong>concepts.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>Path</strong>*</td><td><strong>Key</strong>*</td><td><strong>Type</strong>*</td><td><strong>MetadataXml</strong></td><td><strong>FactTableColumn</strong></td><td><strong>TableName</strong></td><td><strong>ColumnName</strong></td><td><strong>Operator</strong></td><td><strong>Dimcode</strong></td></tr>
+<tr><td>e.g.</td><td>Labs</td><td>labs</td><td>T</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td>Labs/Blood</td><td>labs:blood</td><td>T</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td>Labs/Blood/LDL</td><td>blood:ldl</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong></p>
+<ul>
+<li><p><strong><em>Path</em></strong>: A path that delineates the concept’s hierarchy. As shown in above table in Path column, while creating ontology, path hierarchy needs to be maintained. In the above example Labs is at the root level of the hierarchy followed by blood that will be the child element of Labs and LDL will be child element of the Blood and so on.</p></li>
+<li><p><strong><em>Key</em></strong>: The Code i.e. concept that represent observation e.g. labs.  It is the unique code for the ontology as shown in above table in key column. In the above table, key and path is mandatory. Other index elements from 2-8 are optional. If value in the index 2-8 is not provided, then it takes the i2b2 default value.</p></li>
+<li><p><strong><em>Type</em></strong>: Type is either ‘T’ for text or ‘N’ for numeric and describes the datatype of the concept.</p></li>
+<li><p><strong><em>MetadataXml</em></strong>: i2b2 c_metadataxml in i2b2 table.
+For more details refer to <a href="https://community.i2b2.org/wiki/display/DevForum/Metadata+XML+for+Medication+Modifiers">https://community.i2b2.org/wiki/display/DevForum/Metadata+XML+for+Medication+Modifiers</a></p></li>
+<li><p><strong><em>FactTableColumn</em></strong>: FactTableColumn is the name of the column in the fact table (observation_fact) that holds the concept code.</p></li>
+<li><p><strong><em>TableName</em></strong>: TableName is the name of the lookup table that holds the concept code and concept path.</p></li>
+<li><p><strong><em>ColumnName</em></strong>: ColumnName is the name of the field that holds the concept path.</p></li>
+<li><p><strong><em>Operator</em></strong>: Operator is the SQL operator used in the WHERE clause of the SQL query. It is usually either ‘LIKE’ or ‘=’.</p></li>
+<li><p><strong><em>DimCode</em></strong>: Dimcode is the path that lives in the dimension table and maps to the concept path.</p></li>
+</ul>
+<hr>
+<ol start="2">
+<li><strong>concept_mappings.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>StdCode</strong>*</td><td><strong>LocalCode</strong>*</td><td><strong>LocalCodeName</strong>*</td></tr>
+<tr><td>e.g.</td><td>LOINC|2090-9 (For LDL)</td><td>PartnersEDW|505435</td><td>ldl 1 (nmol/l)</td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong>  This mapping file is required if someone wants to add their own sub-concepts to the standard concept.</p>
+<ul>
+<li><strong><em>StdCode</em></strong>: This is standard LOINC code of the concept. This will be the parent of the local codes in the ontology.</li>
+<li><strong><em>LocalCode</em></strong>: These are the local codes for the particular standard concept. Local codes corresponding to this StdCode will be the child  concepts in the ontology.</li>
+<li><strong><em>LocalCodeName</em></strong>: Name of the local code.</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="understanding-files-that-will-be-uploaded-in-the-data-folder"></a><a href="#understanding-files-that-will-be-uploaded-in-the-data-folder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Understanding files that will be uploaded in the data folder</h2>
+<p>Create the below folder structure. ProjectID will be the first folder (e.g. DATA01 , Note: Project Id can be alphanumeric ), inside it create another folder which represents SourceSystemCD (e.g. EDW). Finally create all or any of the csv file mentioned in below hierarchy.</p>
+<pre><code class="hljs">├── ProjectID                           <span class="hljs-meta"># (e.g. CONCEPT01)</span>
+│   ├── SourceSystemCD                  <span class="hljs-meta"># (e.g. EDW)</span>
+│   │   ├── patient_dimensions.csv
+│   <span class="hljs-string">|   ├── provider_dimensions.csv</span>
+│   │   ├── visit_dimensions.csv
+│   <span class="hljs-string">|   ├── observation_facts.csv</span>
+</code></pre>
+<ol>
+<li><strong>patient_dimensions.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>PatientID</strong>*</td><td><strong>BirthDate</strong></td><td><strong>Gender</strong></td></tr>
+<tr><td>e.g.</td><td>112233</td><td>1961-11-16  00:00:00</td><td>Male</td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong></p>
+<ul>
+<li><strong><em>PatientID</em></strong>: Unique Id for a patient.</li>
+<li><strong><em>BirthDate</em></strong>: Birth date of a patient.</li>
+<li><strong><em>Gender</em></strong>: Gender of a patient.</li>
+</ul>
+<hr>
+<ol start="2">
+<li><strong>provider_dimensions.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>ProviderID</strong>*</td><td><strong>ProviderPath</strong></td><td><strong>UserNM</strong></td></tr>
+<tr><td>e.g.</td><td>P12345</td><td>/Intsitute1/dept1/JOHN M.D.</td><td>JOHN M.D.</td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong></p>
+<ul>
+<li><strong><em>ProviderID</em></strong>: Unique id of the provider.</li>
+<li><strong><em>ProviderPath</em></strong>: The provider_path is the path that describes the how the provider fits into the institutional hierarchy.</li>
+<li><strong><em>UserNM</em></strong>: Name of the provider.</li>
+</ul>
+<hr>
+<ol start="3">
+<li><strong>visit_dimensions.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>PatientEncounterID</strong>*</td><td><strong>PatientID</strong>*</td><td><strong>StartDate</strong></td><td><strong>EndDate</strong></td></tr>
+<tr><td>e.g.</td><td>1111</td><td>12345</td><td>2018-10-08</td><td>2018-10-10</td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong></p>
+<ul>
+<li><strong><em>PatientEncounterID</em></strong>: Encounter number for the PatientID.</li>
+<li><strong><em>PatientID</em></strong>: Unique Id for a patient.</li>
+<li><strong><em>StartDate</em></strong>: Start date of the observation.</li>
+<li><strong><em>EndDate</em></strong>: End date of the observation</li>
+</ul>
+<hr>
+<ol start="3">
+<li><strong>observation_facts.csv</strong></li>
+</ol>
+<table>
+<thead>
+<tr><th>Index</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Column Name</strong></td><td><strong>EncounterID</strong>*</td><td><strong>PatientID</strong>*</td><td><strong>ConceptCD</strong></td><td><strong>ProviderID</strong></td><td><strong>StartDate</strong>*</td><td><strong>ModifierCD</strong></td><td><strong>InstanceNum</strong></td><td><strong>Value</strong></td><td><strong>UnitCD</strong></td></tr>
+<tr><td>e.g.</td><td>1111</td><td>12345</td><td>blood:ldl</td><td>2222</td><td>2018-10-08 00:00:00</td><td>@</td><td>1</td><td>120</td><td>mg/dL</td></tr>
+</tbody>
+</table>
+<p>( * ) indicates mandatory fields.</p>
+<p><strong>Description:-</strong></p>
+<ul>
+<li><strong><em>EncounterID</em></strong>: Encounter number for the PatientID  (this will be mapped to encounter num by the data loading module)</li>
+<li><strong><em>PatientID</em></strong>: Unique id of the patient. (this will be mapped to patient num by the data loading module)</li>
+<li><strong><em>ConceptCD</em></strong>: The Code i.e. concept that represent observation e.g. &quot;labs&quot;.</li>
+<li><strong><em>ProviderID</em></strong>: Unique id of the provider.</li>
+<li><strong><em>StartDate</em></strong>: Start date of the observation. E.g. 2018-10-08 00:00:00.</li>
+<li><strong><em>ModifierCD</em></strong>: If no value, default is @.</li>
+<li><strong><em>InstanceNum</em></strong>:  If no value, default is 1.</li>
+<li><strong><em>Value</em></strong>: Value of the observation. This can either be numeric or text. E.g. Value for &quot;blood:ldl&quot; is 120 i.e. numeric.</li>
+<li><strong><em>UnitCD</em></strong>:  Unit of the observation. E.g. &quot;mg/dL&quot; for &quot;blood:ldl&quot;.</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="use-cases"></a><a href="#use-cases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use cases</h2>
+<p>This section explains about different use cases.</p>
+<h3><a class="anchor" aria-hidden="true" id="use-case-1-import-a-new-ontology-into-i2b2"></a><a href="#use-case-1-import-a-new-ontology-into-i2b2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use Case 1: Import a new ontology into i2b2</h3>
+<ul>
+<li>Create the below folder structure.</li>
+</ul>
+<pre><code class="hljs">├── <span class="hljs-selector-tag">ProjectID</span>                           # (<span class="hljs-selector-tag">e</span><span class="hljs-selector-class">.g</span>. <span class="hljs-selector-tag">CONCEPT01</span>)
+│   ├── <span class="hljs-selector-tag">SourceSystemCD</span>                  # (<span class="hljs-selector-tag">e</span><span class="hljs-selector-class">.g</span>. <span class="hljs-selector-tag">EDW</span>)
+│   │   ├── <span class="hljs-selector-tag">concepts</span><span class="hljs-selector-class">.csv</span>
+</code></pre>
+<ul>
+<li>Create concepts.csv. See concepts.csv section from <a href="../docs/i2b2-cdi-usage#understanding-files-that-will-be-uploaded-in-the-concept-folder">Understanding files in concept folder</a></li>
+</ul>
+<p>Suppose you want to add new concept &quot;LDL&quot; under &quot;Labs/Blood&quot;.</p>
+<p><kbd><img src="/docs/assets/i2b2-cdi/add-concept-1.PNG" alt="Add New Concept"></kbd></p>
+<ul>
+<li><p><strong><em>Steps</em></strong>:-</p>
+<ul>
+<li><strong><em>Path</em></strong>: Add path like Labs/Blood/LDL. (If you want to add new concept called &quot;Test&quot; at root level just specify path like &quot;Test&quot;. And further you can add sub concept below Test using &quot;/&quot; i.e. Forward Slash e.g. Test/Test1 )</li>
+<li><strong><em>Key</em></strong>: This will be used as unique concept code for your ontology. Here you are adding &quot;LDL&quot; under &quot;Blood&quot; So your key will be like &quot;blood:ldl&quot;. Follow the same pattern for all ontology.</li>
+<li><strong><em>Type</em></strong>: Default is ‘T’ i.e. Text. In this case, ldl will be the numeric value so data type will be &quot;N&quot;.</li>
+</ul></li>
+<li><p>So the concepts.csv will look like below,</p>
+<table>
+<thead>
+<tr><th><strong>Path</strong></th><th><strong>Key</strong></th><th><strong>Type</strong></th><th><strong>MetadataXml</strong></th><th><strong>FactTableColumn</strong></th><th><strong>TableName</strong></th><th><strong>ColumnName</strong></th><th><strong>Operator</strong></th><th><strong>Dimcode</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>Labs/Blood/LDL</td><td>blood:ldl</td><td>N</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</li>
+<li><p>If concept is at root level (i.e top level in hirarchy) then, refer the below csv.</p>
+<table>
+<thead>
+<tr><th><strong>Path</strong></th><th><strong>Key</strong></th><th><strong>Type</strong></th><th><strong>MetadataXml</strong></th><th><strong>FactTableColumn</strong></th><th><strong>TableName</strong></th><th><strong>ColumnName</strong></th><th><strong>Operator</strong></th><th><strong>Dimcode</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>Labs</td><td>labs</td><td>T</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</li>
+<li><p>Zip the folder and append extra extension &quot;.txt&quot; then upload the file to concept folder on sftp server.</p></li>
+<li><p>After successful file upload, Remove .txt extension. Application will process the file.</p></li>
+<li><p>Open i2b2 Web Client [ <a href="http://localhost/webclient">http://localhost/webclient</a> ] to view your ontology and for running the query.
+Your ontology will look like in below snapshot.
+<kbd><img src="/docs/assets/i2b2-cdi/add-concept-2.PNG" alt="Add New Concept"></kbd></p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="use-case-2-import-concept-mappings"></a><a href="#use-case-2-import-concept-mappings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use Case 2: Import concept mappings</h3>
+<ul>
+<li>Create the below folder structure.</li>
+</ul>
+<pre><code class="hljs">├── <span class="hljs-selector-tag">ProjectID</span>                           # (<span class="hljs-selector-tag">e</span><span class="hljs-selector-class">.g</span>. <span class="hljs-selector-tag">CONCEPT01</span>)
+│   ├── <span class="hljs-selector-tag">SourceSystemCD</span>                  # (<span class="hljs-selector-tag">e</span><span class="hljs-selector-class">.g</span>. <span class="hljs-selector-tag">EDW</span>)
+│   │   ├── <span class="hljs-selector-tag">concept_mappings</span><span class="hljs-selector-class">.csv</span>
+</code></pre>
+<ul>
+<li><p>Suppose you want to add sub-concepts ( using your own local codes and names ) to the concept &quot;LDL&quot;.</p></li>
+<li><p>Create concept_mappings.csv. Refer to the section concept_mappings.csv from <a href="../docs/i2b2-cdi-usage#understanding-files-that-will-be-uploaded-in-the-concept-folder">Understanding files in concept folder</a></p></li>
+<li><p>So the concept_mappings.csv will look like below,</p>
+<table>
+<thead>
+<tr><th><strong>StdCode</strong></th><th><strong>LocalCode</strong></th><th><strong>LocalCodeName</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>blood:ldl</td><td>ldl:505435</td><td>ldl (real size pattern)</td></tr>
+<tr><td>blood:ldl</td><td>ldl:505436</td><td>ldl 1</td></tr>
+<tr><td>blood:ldl</td><td>ldl:505437</td><td>ldl 1 (nmol/l)</td></tr>
+<tr><td>blood:ldl</td><td>ldl:505438</td><td>poc ldl cholesterol direct</td></tr>
+</tbody>
+</table>
+</li>
+<li><p>Zip the folder and append extra extension &quot;.txt&quot; then upload the file to concept folder on sftp server.</p></li>
+<li><p>After successful file upload, Remove .txt extension. Application will process the file.</p></li>
+<li><p>Open i2b2 Web Client [ <a href="http://localhost/webclient">http://localhost/webclient</a> ] to view your ontology and for running the query.
+Your ontology will look like in below snapshot.</p></li>
+</ul>
+<p><kbd><img src="/docs/assets/i2b2-cdi/add-concept-mappings.PNG" alt="Add Concept mappings"></kbd></p>
+<h3><a class="anchor" aria-hidden="true" id="use-case-3-import-facts-for-new-concept"></a><a href="#use-case-3-import-facts-for-new-concept" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use Case 3: Import facts for new concept</h3>
+<ul>
+<li>Create the below folder structure.</li>
+</ul>
+<pre><code class="hljs">├── ProjectID                           <span class="hljs-meta"># (e.g. CONCEPT01)</span>
+│   ├── SourceSystemCD                  <span class="hljs-meta"># (e.g. EDW)</span>
+│   <span class="hljs-string">|   ├── observation_facts.csv</span>
+</code></pre>
+<ul>
+<li><p>Suppose you want to add observation facts against <strong>'blood:ldl'</strong> concept that we have already added in previous use case. Create observation_facts.csv. Refer to the section observation_facts.csv from <a href="../docs/i2b2-cdi-usage#understanding-files-that-will-be-uploaded-in-the-data-folder">Understanding files in data folder</a>.</p></li>
+<li><p>So the observation_facts.csv will look like below,</p>
+<table>
+<thead>
+<tr><th><strong>EncounterID</strong>*</th><th><strong>PatientID</strong>*</th><th><strong>ConceptCD</strong></th><th><strong>ProviderID</strong></th><th><strong>StartDate</strong>*</th><th><strong>ModifierCD</strong></th><th><strong>InstanceNum</strong></th><th><strong>Value</strong></th><th><strong>UnitCD</strong></th></tr>
+</thead>
+<tbody>
+<tr><td>1111</td><td>12345</td><td>blood:ldl</td><td>2222</td><td>2018-10-08 00:00:00</td><td>@</td><td>1</td><td>120</td><td>mg/dL</td></tr>
+</tbody>
+</table>
+</li>
+<li><p>If you want to add more information like demographics, providers and visits for the above fact, Then refer to the section patient_dimensions.csv, provider_dimensions.csv and visit_dimensions.csv respectively.</p></li>
+<li><p>Zip the folder and append extra extension &quot;.txt&quot; then upload the file to data folder on sftp server.</p></li>
+<li><p>After successful file upload, Remove .txt extension. Application will process the file.</p></li>
+<li><p>Open i2b2 Web Client [ <a href="http://localhost/webclient">http://localhost/webclient</a> ] and run the query for LDL by dropping the ontology for LDL and check the results.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="license-and-copyright"></a><a href="#license-and-copyright" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License and Copyright</h2>
+<p>MPL 2.0 w/ HD<br>
+See <a href="LICENSE">LICENSE</a> file.<br>
+See <a href="/docs/HD">HEALTHCARE DISCLAIMER</a> file.<br>
+© <a href="https://www.persistent.com">Persistent Systems, Inc.</a></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/25/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/i2b2-cdi-ext~README"><span class="arrow-prev">← </span><span>CDI Quickstart</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#understanding-sftp-folders">Understanding SFTP Folders</a></li><li><a href="#understanding-files-that-will-be-uploaded-in-the-concept-folder">Understanding files that will be uploaded in the concept folder</a></li><li><a href="#understanding-files-that-will-be-uploaded-in-the-data-folder">Understanding files that will be uploaded in the data folder</a></li><li><a href="#use-cases">Use cases</a><ul class="toc-headings"><li><a href="#use-case-1-import-a-new-ontology-into-i2b2">Use Case 1: Import a new ontology into i2b2</a></li><li><a href="#use-case-2-import-concept-mappings">Use Case 2: Import concept mappings</a></li><li><a href="#use-case-3-import-facts-for-new-concept">Use Case 3: Import facts for new concept</a></li></ul></li><li><a href="#license-and-copyright">License and Copyright</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="main"><h5><a href="/" class="nav-home"><div class="box"><img src="/img/igia-bw-inverse.png" alt="igia" width="66" height="66"/>    <span style="font-size:3em;font-weight:200">igia</span></div></a></h5><span class="footer-text">Enabling the development, deployment, and sharing of healthcare technology.</span><br/><br/><span class="footer-text small left">Logo Design By <a target="_blank" class="footer-text left" href="https://gillfishmandesign.com">GillFishmanDesign.com</a> Cambridge, Massachusetts</span><br/><br/><span class="footer-text small left">Copyright © 2019</span><br/><span class="footer-text small left">&quot;igia&quot; is a trademark of the igia.io project.</span></div><div><h5>Documentation</h5><a href="/docs/gettingstarted">Getting Started</a><a href="/docs/LICENSE">License</a><a href="/docs/HD">Disclaimer</a><a href="/docs/igia-faq">FAQ</a></div><div><h5>Community</h5><a href="https://groups.google.com/forum/#!forum/igia">Discussion Forum</a><a href="/users.html">Platform Users</a><br/><h5>Contact us at</h5><img src="/img/info-at-igia-io-white.svg" style="height:1.3em"/></div><div><h5>More</h5><a target="_blank" href="https://github.com/igia">GitHub</a><a class="github-button" href="https://github.com/igia/igia-docs" data-icon="octicon-star" data-count-href="/igia.github.io/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'f8534c32f62ecd9bce873d56fb1f9619',
+                indexName: 'igia',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
