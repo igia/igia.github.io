@@ -3,7 +3,7 @@
 <url> <loc>http://igia.io/help</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/en/help" /> </url>
 <url> <loc>http://igia.io/index</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/en/index" /> </url>
 <url> <loc>http://igia.io/users</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/en/users" /> </url>
-<url> <loc>http://igia.io/docs/acknowledgments</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/acknowledgments" /> </url>
+<url> <loc>http://igia.io/docs/acknowledgements</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/acknowledgements" /> </url>
 <url> <loc>http://igia.io/docs/architecture</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/architecture" /> </url>
 <url> <loc>http://igia.io/docs/caremanagement-feature</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/caremanagement-feature" /> </url>
 <url> <loc>http://igia.io/docs/caremanagement~ACKNOWLEDGEMENTS</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/caremanagement~ACKNOWLEDGEMENTS" /> </url>
@@ -14,7 +14,6 @@
 <url> <loc>http://igia.io/docs/cha2ds2-vasc-application~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/cha2ds2-vasc-application~README" /> </url>
 <url> <loc>http://igia.io/docs/component/overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component/overview" /> </url>
 <url> <loc>http://igia.io/docs/component/usage</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component/usage" /> </url>
-<url> <loc>http://igia.io/docs/component1</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/component1" /> </url>
 <url> <loc>http://igia.io/docs/componentdocument</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/componentdocument" /> </url>
 <url> <loc>http://igia.io/docs/components</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/components" /> </url>
 <url> <loc>http://igia.io/docs/contributing</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/contributing" /> </url>
