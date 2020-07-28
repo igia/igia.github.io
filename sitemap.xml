@@ -22,8 +22,6 @@
 <url> <loc>http://igia.io/docs/gettingstarted</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/gettingstarted" /> </url>
 <url> <loc>http://igia.io/docs/HD</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/HD" /> </url>
 <url> <loc>http://igia.io/docs/hipaa-feature</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/hipaa-feature" /> </url>
-<url> <loc>http://igia.io/docs/i2b2-cdi-ext~ACKNOWLEDGEMENTS</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/i2b2-cdi-ext~ACKNOWLEDGEMENTS" /> </url>
-<url> <loc>http://igia.io/docs/i2b2-cdi-ext~README</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/i2b2-cdi-ext~README" /> </url>
 <url> <loc>http://igia.io/docs/i2b2-cdi-overview</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/i2b2-cdi-overview" /> </url>
 <url> <loc>http://igia.io/docs/i2b2-cdi-usage</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/i2b2-cdi-usage" /> </url>
 <url> <loc>http://igia.io/docs/igia-apigateway~ACKNOWLEDGEMENTS</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="http://igia.io/docs/igia-apigateway~ACKNOWLEDGEMENTS" /> </url>
